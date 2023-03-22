@@ -17,4 +17,5 @@ public class CurrencyConversion implements Serializable {
     private BigDecimal quantity;
     private BigDecimal exchangeRate;
     private BigDecimal totalAmount;
+    private Integer port;
 }

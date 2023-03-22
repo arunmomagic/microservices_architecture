@@ -16,6 +16,7 @@ public class CurrencyServiceImp implements CurrencyService {
     private RestTemplate restTemplate;
     @Autowired
     private CurrencyExchangeProxy currencyExchangeProxy;
+
     @Override
     public CurrencyConversion getCurrencyConversion(String from, String to, BigDecimal quantity) {
         CurrencyExchangeRate currencyExchangeRate=restTemplate.getForObject("http://localhost:8001/currency-service/from/"+from+"/to/"+to, CurrencyExchangeRate.class);
@@ -27,6 +28,7 @@ public class CurrencyServiceImp implements CurrencyService {
                 .exchangeRate(currencyExchangeRate.getExchangeRate())
                 .quantity(quantity)
                 .totalAmount(totalAmount)
+                .port(currencyExchangeRate.getPort())
                 .build();
     }
 
@@ -41,6 +43,7 @@ public class CurrencyServiceImp implements CurrencyService {
                 .exchangeRate(currencyExchangeRate.getExchangeRate())
                 .quantity(quantity)
                 .totalAmount(totalAmount)
+                .port(currencyExchangeRate.getPort())
                 .build();
     }
 }

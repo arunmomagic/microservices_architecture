@@ -18,7 +18,7 @@ public class CurrencyController {
         return currencyService.getCurrencyConversion(from,to,quantity);
     }
 
-    @GetMapping("currency-conversion- /from/{from}/to/{to}/{quantity}")
+    @GetMapping("currency-conversion-feign/from/{from}/to/{to}/{quantity}")
     public CurrencyConversion getCurrencyConversionFeign(@PathVariable("from") String from,@PathVariable("to") String to,@PathVariable("quantity") BigDecimal quantity){
         return currencyService.getCurrencyConversionFeign(from,to,quantity);
     }

@@ -1,5 +1,6 @@
 package com.arun.biswas.currency.conversion.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -13,6 +14,7 @@ import java.util.List;
 @Configuration
 public class BaseRestTemplateConfig {
     @Bean
+    @LoadBalanced
     public RestTemplate restTemplate() {
         RestTemplate rt = new RestTemplate();
         List<HttpMessageConverter<?>> list = new ArrayList<HttpMessageConverter<?>>();
