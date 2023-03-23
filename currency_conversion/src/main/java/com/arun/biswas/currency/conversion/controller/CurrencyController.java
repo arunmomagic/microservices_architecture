@@ -13,12 +13,8 @@ import java.math.BigDecimal;
 public class CurrencyController {
     @Autowired
     private CurrencyService currencyService;
-    @GetMapping("currency-conversion/from/{from}/to/{to}/{quantity}")
-    public CurrencyConversion getCurrencyConversion(@PathVariable("from") String from,@PathVariable("to") String to,@PathVariable("quantity") BigDecimal quantity){
-        return currencyService.getCurrencyConversion(from,to,quantity);
-    }
 
-    @GetMapping("currency-conversion-feign/from/{from}/to/{to}/{quantity}")
+    @GetMapping("currency-conversion/from/{from}/to/{to}/{quantity}")
     public CurrencyConversion getCurrencyConversionFeign(@PathVariable("from") String from,@PathVariable("to") String to,@PathVariable("quantity") BigDecimal quantity){
         return currencyService.getCurrencyConversionFeign(from,to,quantity);
     }
